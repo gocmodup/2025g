@@ -1,35 +1,80 @@
 (function() {
-    // Tạo phần tử container cho banner
-    const bannerContainer = document.createElement('div');
-    bannerContainer.id = 'banner-container';
-    bannerContainer.style = 'position:fixed; top:0; left:0; width:100%; height:100%; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.5); z-index:9999; visibility:hidden;';
-    document.body.appendChild(bannerContainer);
+    const banner = document.createElement('div');
+    banner.id = 'banner';
+    banner.style.position = 'fixed';
+    banner.style.bottom = '20px';
+    banner.style.right = '20px';
+    banner.style.width = '300px';
+    banner.style.height = '250px';
+    banner.style.backgroundColor = '#fff';
+    banner.style.border = '1px solid #ccc';
+    banner.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+    banner.style.display = 'none';
+    banner.style.zIndex = '1000';
 
-    // Lấy dữ liệu từ URL JSON
-    fetch('https://raw.githubusercontent.com/gocmodup/2025g/main/shopee')
-    .then(response => response.json())
-    .then(data => {
-        const keys = Object.keys(data);
-        const randomKey = keys[Math.floor(Math.random() * keys.length)];
-        const randomItem = data[randomKey];
+    const closeButton = document.createElement('button');
+    closeButton.id = 'close-btn';
+    closeButton.innerText = 'X';
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '5px';
+    closeButton.style.right = '5px';
+    closeButton.style.background = '#ff0000';
+    closeButton.style.color = '#fff';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '50%';
+    closeButton.style.width = '25px';
+    closeButton.style.height = '25px';
+    closeButton.style.cursor = 'pointer';
 
-        // HTML cho banner với hình ảnh và liên kết
-        const bannerHTML = `
-            <div style="position:relative; width:80%; max-width:400px;">
-                <span id="banner-close" style="position:absolute; top:10px; right:10px; cursor:pointer; background:#fff; padding:5px; border-radius:50%; z-index:10000;">X</span>
-                <a href="${randomItem.url}" target="_blank" style="display:block;">
-                    <img src="${randomItem.img}" alt="Banner" style="width:100%; border-radius:10px;"/>
-                </a>
-            </div>
-        `;
+    const bannerLink = document.createElement('a');
+    bannerLink.id = 'banner-link';
+    bannerLink.href = '#';
+    bannerLink.target = '_blank';
 
-        bannerContainer.innerHTML = bannerHTML;
-        bannerContainer.style.visibility = 'visible';
+    const bannerImg = document.createElement('img');
+    bannerImg.id = 'banner-img';
+    bannerImg.style.width = '100%';
+    bannerImg.style.height = '100%';
+    bannerLink.appendChild(bannerImg);
 
-        // Sự kiện đóng banner
-        document.getElementById('banner-close').onclick = function() {
-            bannerContainer.style.display = 'none';
-        };
-    })
-    .catch(error => console.error('Error loading banner:', error));
+    banner.appendChild(closeButton);
+    banner.appendChild(bannerLink);
+
+    document.body.appendChild(banner);
+
+    const adDataUrl = 'https://raw.githubusercontent.com/gocmodup/2025g/main/shopee'; // URL chứa dữ liệu JSON
+
+    function fetchAdData() {
+        fetch(adDataUrl)
+            .then(response => response.json())
+            .then(data => {
+                const randomAd = data[Math.floor(Math.random() * data.length)];
+                bannerLink.href = randomAd.url;
+                bannerImg.src = randomAd.image;
+                banner.style.display = 'block';
+            })
+            .catch(error => console.error('Error fetching ad data:', error));
+    }
+
+    function setBannerTimeout() {
+        localStorage.setItem('bannerTimeout', Date.now() + 15 * 60 * 1000);
+    }
+
+    function shouldShowBanner() {
+        const timeout = localStorage.getItem('bannerTimeout');
+        return !timeout || Date.now() > timeout;
+    }
+
+    closeButton.addEventListener('click', () => {
+        banner.style.display = 'none';
+        setBannerTimeout();
+    });
+
+    bannerLink.addEventListener('click', () => {
+        setBannerTimeout();
+    });
+
+    if (shouldShowBanner()) {
+        fetchAdData();
+    }
 })();
