@@ -1,35 +1,31 @@
-// Lấy dữ liệu quảng cáo từ file data.json
-fetch('https://raw.githubusercontent.com/gocmodup/2025g/main/shopee')
-  .then(response => response.json())
-  .then(data => {
-    const banner = document.getElementById('banner');
-    const closeBtn = banner.querySelector('.close');
+(function() {
+    const bannerContainer = document.createElement('div');
+    bannerContainer.id = 'banner-container';
+    bannerContainer.style = 'width:100%';
+    document.body.appendChild(bannerContainer);
 
-    // Hàm hiển thị banner ngẫu nhiên ở giữa màn hình
-    function showBanner() {
-      const randomAd = data[Math.floor(Math.random() * data.length)];
-      banner.querySelector('img').src = randomAd.image;
-      banner.querySelector('a').href = randomAd.link;
-      banner.style.display = 'block';
-    }
+    fetch('https://raw.githubusercontent.com/gocmodup/2025g/main/shopee')
+    .then(response => response.json())
+    .then(data => {
+        const links = Object.values(data);
+        const randomLink = links[Math.floor(Math.random() * links.length)];
 
-    // Kiểm tra và hiển thị banner định kỳ
-    setInterval(() => {
-      if (shouldShowBanner()) {
-        showBanner();
-      }
-    }, 15 * 60 * 1000 + Math.random() * 60 * 1000); // 15 phút +/- 1 phút
+        const bannerHTML = `
+            <div style="position:fixed; inset:0; display:flex; justify-content:center; align-items:center; background:#00000066; z-index:9999997; overflow:hidden;">
+                <div style="position:relative; width:80%; max-width:400px;">
+                    <span id="banner-close" style="position:absolute; top:10px; right:10px; cursor:pointer; background:#fff; padding:5px; border-radius:50%;">X</span>
+                    <a href="${randomLink}" target="_blank">
+                        <img src="${randomLink}" alt="Banner" style="width:100%;"/>
+                    </a>
+                </div>
+            </div>
+        `;
 
-    // Hàm kiểm tra xem đã đến lúc hiển thị lại banner chưa
-    function shouldShowBanner() {
-      const lastShown = localStorage.getItem('lastShown');
-      if (!lastShown) return true; // Nếu chưa từng hiển thị, thì hiển thị
-      const now = Date.now();
-      return now - lastShown > 15 * 60 * 1000; // 15 phút
-    }
+        bannerContainer.innerHTML = bannerHTML;
 
-    // Đóng banner khi click vào nút đóng
-    closeBtn.addEventListener('click', () => {
-      banner.style.display = 'none';
-    });
-  });
+        document.getElementById('banner-close').onclick = function() {
+            bannerContainer.style.display = 'none';
+        };
+    })
+    .catch(error => console.error('Error loading banner:', error));
+})();
