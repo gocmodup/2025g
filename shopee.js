@@ -14,8 +14,14 @@
         const jsonUrl = 'https://raw.githubusercontent.com/gocmodup/2025g/main/shopee'; // Đặt URL JSON của bạn ở đây
         
         fetch(jsonUrl)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
+                console.log('Dữ liệu JSON:', data); // Kiểm tra xem dữ liệu JSON có tải thành công không
                 Array.prototype.itemRandom = function() {
                     return this[Math.floor(Math.random() * this.length)];
                 };
