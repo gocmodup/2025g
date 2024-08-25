@@ -9,7 +9,12 @@
         c.classList.add("aanetwork-ads-box","aanetwork-type-pto");
 
         fetch('https://raw.githubusercontent.com/gocmodup/2025g/main/shopee') // Path to your JSON file
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
             .then(l => {
                 Array.prototype.itemRandom = function(){ return this[Math.floor(Math.random() * this.length)]; };
                 var d = l.itemRandom();
