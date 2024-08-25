@@ -1,7 +1,3 @@
 {
-  "item1": {
-    "image": "https://i.upanh.org/2024/08/25/10010994843d1ae219dfae70cb.jpeg",
-    "link": "https://s.shopee.vn/8zluBZigxc"
-  },
-  
+    "link1": {"img": "https://i.upanh.org/2024/08/25/10010994843d1ae219dfae70cb.jpeg", "url": "https://s.shopee.vn/8zluBZigxc"},}
 }
