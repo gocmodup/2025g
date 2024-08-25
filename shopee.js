@@ -1,4 +1,6 @@
 (function() {
+    const adDataUrl = 'https://raw.githubusercontent.com/gocmodup/2025g/main/shopee'; // Thay đổi URL này thành URL JSON của bạn
+
     const banner = document.createElement('div');
     banner.id = 'banner';
     banner.style.position = 'fixed';
@@ -41,8 +43,6 @@
     banner.appendChild(bannerLink);
 
     document.body.appendChild(banner);
-
-    const adDataUrl = 'https://raw.githubusercontent.com/gocmodup/2025g/main/shopee'; // URL chứa dữ liệu JSON
 
     function fetchAdData() {
         fetch(adDataUrl)
