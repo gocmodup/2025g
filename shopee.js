@@ -1,4 +1,4 @@
-// Mảng chứa các đối tượng banner quảng cáo
+// Kiểm tra nếu document.write() hoạt động
 var banners = [
   {
     src: "https://i.upanh.org/2024/08/26/10010994843d1ae219dfae70cb-34989a380c05c803e.jpeg",
@@ -18,8 +18,6 @@ var banners = [
   }
 ];
 
-// Lấy ngẫu nhiên một banner trong mảng
 var banner = banners[Math.floor(Math.random() * banners.length)];
 
-// Hiển thị banner quảng cáo
-document.write('<a href="' + banner.href + '" target="_blank"><img src="' + banner.src + '"></a>');
+document.write('<a href="' + banner.href + '" target="_blank"><img src="' + banner.src + '" alt="Banner"></a>');
