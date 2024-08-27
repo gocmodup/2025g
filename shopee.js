@@ -1,7 +1,5 @@
-
-// Create a function to initialize the popup ads
 function initializePopupAds() {
-    // Inject CSS into the document
+    // Inject CSS
     const style = document.createElement('style');
     style.textContent = `
         #popup-ads {
@@ -38,7 +36,7 @@ function initializePopupAds() {
     `;
     document.head.appendChild(style);
 
-    // Inject HTML into the document
+    // Inject HTML
     const popupHTML = `
         <div id="popup-ads">
             <div class="container-popup">
@@ -75,7 +73,6 @@ function initializePopupAds() {
                 { image: "https://i45.servimg.com/u/f45/19/58/16/37/shopee10.jpg", link: "https://s.shopee.vn/8pSX14WLI3" }
             ];
 
-            var popupVisible = false; 
             function showPopup() {
                 var randomIndex = Math.floor(Math.random() * data.length);
                 var selectedItem = data[randomIndex];
@@ -85,40 +82,23 @@ function initializePopupAds() {
 
                 $('#popup-ads').css('display', 'flex'); 
                 $('body').css('overflow', 'hidden'); 
-                popupVisible = true; 
             }
 
-            function hidePopup() {
-                $('#popup-ads').hide(); 
-                $('body').css('overflow', ''); 
-                popupVisible = false; 
-            }
-
-            function setPopupCookie() {
-                Cookies.set('popup_timer', '1', { expires: 1 });
-            }
-
-            function checkPopupCookie() {
-                return Cookies.get('popup_timer') === undefined; 
-            }
-
-            if (checkPopupCookie()) {
-                showPopup();
-                setPopupCookie();
-            }
+            // Temporarily disable cookie check for testing
+            showPopup();
 
             $('.btn-close').on('click', function (e) {
                 e.preventDefault();
-                hidePopup(); 
-                setPopupCookie();
+                $('#popup-ads').hide(); 
+                $('body').css('overflow', '');
             });
 
             $(document).on("mouseup", function(e) {
                 var containerModal = $(".container-popup");
-                if (popupVisible && !containerModal.is(e.target) && containerModal.has(e.target).length === 0) {
+                if (!containerModal.is(e.target) && containerModal.has(e.target).length === 0) {
                     window.open($('.banner').attr('href'), '_blank'); 
-                    hidePopup(); 
-                    setPopupCookie();
+                    $('#popup-ads').hide(); 
+                    $('body').css('overflow', '');
                 }
             });
         });
