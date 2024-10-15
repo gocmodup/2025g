@@ -50,7 +50,7 @@
     closeButton.style.position = 'absolute';
     closeButton.style.top = '10px';
     closeButton.style.right = '10px';
-    closeButton.style.fontSize = '24px';
+    closeButton.style.fontSize = '36px';
     closeButton.style.color = '#888';
     closeButton.style.cursor = 'pointer';
     closeButton.style.transition = 'color 0.3s ease';
