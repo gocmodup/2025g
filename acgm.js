@@ -90,7 +90,7 @@
 
     // Tạo thông báo
     var adText = document.createElement('p');
-    adText.innerHTML = 'Nhấn Dzô cái "nhình nhảnh" để "ủm hộ" cho tụi mình nè';
+    adText.innerHTML = 'Nha^n Dzô cái "nhình nhảnh" để "ủm hộ" cho GocMod nè';
     adText.style.fontSize = '16px';
     adText.style.color = '#555';
     adText.style.margin = '0';
