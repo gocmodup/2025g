@@ -80,7 +80,7 @@
 
     // Tạo thông báo
     var adText = document.createElement('p');
-    adText.innerHTML = 'Nhấn Dzô cái "nhình nhảnh" để "ủm hộ" cho tụi mình nè';
+    adText.innerHTML = 'TIPS: Quảng cáo là nguồn thu chính của website, hãy tắt trình chặn quảng cáo để ủng hộ website!';
     adText.style.fontSize = '16px';
     adText.style.color = '#555';
     adText.style.margin = '0';
