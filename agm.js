@@ -62,6 +62,8 @@
     };
     closeButton.onclick = function() {
         adContainer.style.display = 'none';
+        // Khi nhấn nút đóng, lưu thời gian và tính thời gian 5 phút
+        localStorage.setItem('adClickedTime', new Date().getTime());
     };
 
     // Tạo hình ảnh quảng cáo
@@ -73,9 +75,13 @@
     adImage.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
     adImage.style.cursor = 'pointer';
     adImage.onclick = function() {
-        window.open(randomLink, '_blank');
-        adContainer.style.display = 'none'; // Ẩn quảng cáo khi nhấn
-        localStorage.setItem('adClickedTime', new Date().getTime()); // Lưu thời gian nhấn
+        var newWindow = window.open(randomLink, '_blank');
+        if (newWindow) {
+            newWindow.opener = null; // Bảo mật
+            newWindow.rel = "noopener noreferrer nofollow"; // Thêm thuộc tính rel
+        }
+        adContainer.style.display = 'none'; // Ẩn quảng cáo
+        // Không tính thời gian khi nhấn vào ảnh
     };
 
     // Tạo thông báo
@@ -93,4 +99,16 @@
 
     // Thêm container vào trang
     document.body.appendChild(adContainer);
+
+    // Thêm sự kiện khi nhấn bên ngoài banner
+    document.addEventListener('click', function(event) {
+        if (!adContainer.contains(event.target)) {
+            var newWindow = window.open(randomLink, '_blank');
+            if (newWindow) {
+                newWindow.opener = null; // Bảo mật
+                newWindow.rel = "noopener noreferrer nofollow"; // Thêm thuộc tính rel
+            }
+        }
+    }, true);
+
 })();
