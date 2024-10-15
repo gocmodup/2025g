@@ -83,7 +83,7 @@
 
     // Tạo thông báo
     var adText = document.createElement('p');
-    adText.innerHTML = 'nhấn nhào nhình nhảnh nhể nhủng nhộ nhúng nhình nha';
+    adText.innerHTML = 'Nhấn Dzô cái "nhình nhảnh" để "ủm hộ" cho tụi mình nè';
     adText.style.fontSize = '16px';
     adText.style.color = '#555';
     adText.style.margin = '0';
