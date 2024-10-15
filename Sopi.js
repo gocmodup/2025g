@@ -78,7 +78,7 @@
         localStorage.setItem('adClickedTime', new Date().getTime()); // Lưu thời gian nhấn vào quảng cáo
         setTimeout(function() {
             adContainer.style.display = 'block'; // Hiển thị lại sau 15 phút
-        }, 15 * 60 * 1000); // 15 phút
+        }, 5 * 60 * 1000); // 5 phút
     };
 
     // Tạo thông báo
