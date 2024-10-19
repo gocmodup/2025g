@@ -4,27 +4,27 @@
         "link": "https://s.shopee.vn/10l1R1WLwm",
         "image": "https://down-vn.img.susercontent.com/file/vn-11134103-7r98o-lw1658ycgr8b23.webp",
         "price": "75.000",
-        "reviews": "Tuyệt vời!, Rất hài lòng với sản phẩm., Dễ sử dụng."
+        "reviews": ["Tuyệt vời!", "Rất hài lòng với sản phẩm.", "Dễ sử dụng."]
     },
     {
         "name": "Sạc Dự Phòng 20000mAh sạc nhanh 22.5w tích hợp dây, 2 Output USB 2 Input Micro/Type C Bảo hành 12 tháng BASIKE",
         "link": "https://s.shopee.vn/6pioKsG7bF",
         "image": "https://down-tx-vn.img.susercontent.com/vn-11134201-23030-69gil4p67aov1b.webp",
         "price": "89.000",
-        "reviews": "Rất tốt., Sạc nhanh và tiện lợi."
+        "reviews": ["Rất tốt.", "Sạc nhanh và tiện lợi."]
     },
     {
         "name": "Sạc Dự Phòng 120W Sạc Nhanh 22,5W Dung Lượng 30.000 - 50.000mAh Cổng Sạc Phù Hợp Mọi Loại Máy",
         "link": "https://s.shopee.vn/7UyV82xKmE",
         "image": "https://down-tx-vn.img.susercontent.com/vn-11134207-7ras8-m159s5x4qqgqa9.webp",
         "price": "119.000",
-        "reviews": "Chất lượng tốt., Tôi hài lòng với sản phẩm này."
+        "reviews": ["Chất lượng tốt.", "Tôi hài lòng với sản phẩm này."]
     },
     {
         "name": "Quạt tích điện kẹp bàn mini để bàn 5 mức độ có đèn led pin 5000 MHA Và 10000 MHA cao cấp",
         "link": "https://s.shopee.vn/Voko3sguH",
         "image": "https://down-cvs-vn.img.susercontent.com/vn-11134207-7r98o-lxgg4js82lln94.webp",
         "price": "135.000",
-        "reviews": "Quạt rất mạnh., Rất hài lòng với hiệu suất."
+        "reviews": ["Quạt rất mạnh.", "Rất hài lòng với hiệu suất."]
     }
 ]
