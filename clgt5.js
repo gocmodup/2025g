@@ -9,10 +9,10 @@
 
     // Danh sách URL Shopee
     var links = [
-        "https://s.shopee.vn/5KulbCLsrS",
-        "https://s.shopee.vn/6V6izOgd3W",
-        "https://s.shopee.vn/5KulbH6fIA",
-        "https://s.shopee.vn/5VEBndR1W4"
+        "https://s.shopee.vn/1g21yYEaX2",
+        "https://s.shopee.vn/1qLSArDxC5",
+        "https://s.shopee.vn/1LPBZwFrD0",
+        "https://s.shopee.vn/1VibmFFDs3"
     ];
 
     // Danh sách tips
