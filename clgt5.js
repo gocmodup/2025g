@@ -4,7 +4,9 @@
         "https://i45.servimg.com/u/f45/19/58/16/37/captur10.jpg",
         "https://i45.servimg.com/u/f45/19/58/16/37/khach-10.jpg",
         "https://i45.servimg.com/u/f45/19/58/16/37/shopee10.jpg",
-        "https://i45.servimg.com/u/f45/19/58/16/37/img_2014.jpg"
+        "https://i45.servimg.com/u/f45/19/58/16/37/img_2014.jpg",
+        "https://i45.servimg.com/u/f45/19/58/16/37/img_2015.jpg",
+        "https://i45.servimg.com/u/f45/19/58/16/37/img_2016.jpg"
     ];
 
     // Danh sách URL Shopee
@@ -12,7 +14,9 @@
         "https://s.shopee.vn/1g21yYEaX2",
         "https://s.shopee.vn/1qLSArDxC5",
         "https://s.shopee.vn/1LPBZwFrD0",
-        "https://s.shopee.vn/1VibmFFDs3"
+        "https://s.shopee.vn/1VibmFFDs3",
+        "https://s.shopee.vn/2fur50fVkC",
+        "https://s.shopee.vn/1VitgqocPm"
     ];
 
     // Danh sách tips
