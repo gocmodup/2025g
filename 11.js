@@ -57,13 +57,13 @@
         // Tạo element mới
         const bannerElement = document.createElement('div');
         bannerElement.innerHTML = `
-            <a href="${banner.href}" 
-               target="_blank" 
-               rel="noopener noreferrer nofollow">
-                <img src="${banner.src}" 
-                     style="width:300px; height:auto; display:block;">
-            </a>
-        `;
+                <a href="${banner.href}" 
+                   target="_blank" 
+                   rel="noopener noreferrer nofollow">
+                    <img src="${banner.src}" 
+                         style="width:300px; height:auto; display:block;">
+                </a>
+            `;
         
         // Chèn banner vào trước thẻ script
         currentScript.parentNode.insertBefore(bannerElement, currentScript);
