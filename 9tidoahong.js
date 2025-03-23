@@ -44,7 +44,13 @@ function displayRandomBanner() {
     if (validBanners.length > 0) {
         const shuffledBanners = shuffleArray(validBanners);
         const banner = shuffledBanners[0];
-        document.write(`<a href="${banner.href}" target="_blank" rel="noopener noreferrer nofollow"><img src="${banner.src}" style="width:300px; height:auto; display:block;"></a>`);
+        document.write(`
+            <div style="max-width:300px; width:300px; overflow:hidden;">
+                <a href="${banner.href}" target="_blank" rel="noopener noreferrer nofollow">
+                    <img src="${banner.src}" style="width:300px; height:auto; max-width:100%; display:block; object-fit:contain;">
+                </a>
+            </div>
+        `);
     }
 }
 
