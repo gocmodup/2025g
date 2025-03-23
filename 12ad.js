@@ -17,11 +17,21 @@
         return banners.filter(banner => !banner.expireDate || new Date(banner.expireDate) >= today);
     }
 
+    function updateAdStats(bannerId, type) {
+        const stats = JSON.parse(localStorage.getItem('adStats') || '{}');
+        if (!stats[bannerId]) {
+            stats[bannerId] = { impressions: 0, clicks: 0 };
+        }
+        stats[bannerId][type] += 1;
+        localStorage.setItem('adStats', JSON.stringify(stats));
+    }
+
     function showRandomAd() {
         const validBanners = getValidBanners();
         if (validBanners.length === 0) return;
         
         const randomBanner = validBanners[Math.floor(Math.random() * validBanners.length)];
+        updateAdStats(randomBanner.id, 'impressions');
         
         const adContainer = document.createElement('div');
         adContainer.style.position = 'fixed';
@@ -32,7 +42,14 @@
         adContainer.style.padding = '10px';
         adContainer.style.border = '1px solid #ccc';
         adContainer.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
-        adContainer.innerHTML = `<a href="${randomBanner.href}" target="_blank"><img src="${randomBanner.src}" style="width: 300px; height: auto; display: block;"/></a>`;
+        
+        const adLink = document.createElement('a');
+        adLink.href = randomBanner.href;
+        adLink.target = '_blank';
+        adLink.innerHTML = `<img src="${randomBanner.src}" style="width: 300px; height: auto; display: block;"/>`;
+        adLink.onclick = function() { updateAdStats(randomBanner.id, 'clicks'); };
+        
+        adContainer.appendChild(adLink);
         document.body.appendChild(adContainer);
     }
 
@@ -59,7 +76,9 @@
         try {
             localStorage.setItem(REPORT_LOCK_KEY, '1');
             const stats = JSON.parse(localStorage.getItem('adStats') || '{}');
-            let report = '📊 Báo cáo quảng cáo:\n\n';
+            let report = '📊 Báo cáo quảng cáo:
+
+';
 
             Object.keys(stats).forEach(bannerId => {
                 const { impressions = 0, clicks = 0 } = stats[bannerId];
