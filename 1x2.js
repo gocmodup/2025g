@@ -1,17 +1,14 @@
-<script>
 (function () {
-    const targetUrl = "https://t.me/ghostgmb0"; // ← Link cần chuyển
+    const targetUrl = "https://t.me/ghostgmb0";
     const delayMinutes = 5;
     const storageKey = 'bannerClosedTime';
 
-    // Kiểm tra nếu đã đóng trong vòng 5 phút
     const lastClosed = localStorage.getItem(storageKey);
     const now = Date.now();
     if (lastClosed && now - parseInt(lastClosed) < delayMinutes * 60 * 1000) {
-        return; // Không hiển thị nếu chưa hết 5 phút
+        return;
     }
 
-    // Tạo container banner
     const banner = document.createElement('div');
     banner.style.position = 'fixed';
     banner.style.top = '50%';
@@ -27,7 +24,6 @@
     banner.style.cursor = 'pointer';
     banner.style.overflow = 'hidden';
 
-    // Hình ảnh banner
     const img = document.createElement('img');
     img.src = 'https://i45.servimg.com/u/f45/19/58/16/37/chatgp10.png';
     img.style.width = '100%';
@@ -35,7 +31,6 @@
     img.style.objectFit = 'cover';
     img.style.display = 'block';
 
-    // Nút đóng (X)
     const close = document.createElement('span');
     close.innerHTML = '&times;';
     close.style.position = 'absolute';
@@ -46,25 +41,20 @@
     close.style.cursor = 'pointer';
     close.style.zIndex = '10000';
 
-    // Gắn các phần tử
     banner.appendChild(img);
     banner.appendChild(close);
     document.body.appendChild(banner);
 
-    // Click vào banner (trừ nút X) → mở link
     banner.addEventListener('click', function (e) {
         if (e.target !== close) {
             window.open(targetUrl, '_blank');
             banner.remove();
-            // Không lưu thời gian, nên sẽ vẫn hiện lại nếu load trang
         }
     });
 
-    // Click vào nút X → lưu thời gian để ẩn 5 phút
     close.addEventListener('click', function (e) {
         e.stopPropagation();
         localStorage.setItem(storageKey, Date.now().toString());
         banner.remove();
     });
 })();
-</script>
