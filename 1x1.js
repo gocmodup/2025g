@@ -1,9 +1,9 @@
 (function() {
     const banners = [
         {
-            id: "RedmiBuds6",
-            src: "https://i45.servimg.com/u/f45/19/58/16/37/img_2023.jpg",
-            href: "https://s.shopee.vn/3q9EGHlW0c",
+            id: "GocMOd",
+            src: "https://i45.servimg.com/u/f45/19/58/16/37/chatgp10.png",
+            href: "https://t.me/ghostgmb0",
             expireDate: "2025-04-30" 
         },
         {
@@ -11,18 +11,7 @@
             src: "https://i.servimg.com/u/f45/19/58/16/37/6d04cf10.png",
             href: "https://so-gr3at3.com/go/1497333"
         },
-        {
-            id: "Mijia",
-            src: "https://i45.servimg.com/u/f45/19/58/16/37/img_2024.jpg",
-            href: "https://s.shopee.vn/2fxGsJ3n5r",
-            expireDate: "2025-04-30"
-        },
-        {
-            id: "ChuotURGreen",
-            src: "https://i45.servimg.com/u/f45/19/58/16/37/img_2025.jpg",
-            href: "https://s.shopee.vn/5puIeHsIrg",
-            expireDate: "2025-04-30"
-        }
+    
     ];
 
     function getValidBanners() {
