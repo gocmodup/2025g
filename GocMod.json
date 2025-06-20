@@ -1,0 +1,16 @@
+{
+  "login_title": "Mod Login GocMod.com",
+  "login_message": "Please login to use this mod! Contact @ghostgmb0 to buy account",
+  "users": [
+    {
+      "username": "testuser",
+      "password": "123456",
+      "expire_date": "2025-12-31"
+    },
+    {
+      "username": "modadmin",
+      "password": "admin123",
+      "expire_date": "2099-12-31"
+    }
+  ]
+}
